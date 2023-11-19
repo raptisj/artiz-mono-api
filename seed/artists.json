@@ -1,0 +1,11 @@
+[
+    {
+        "_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "name": "Pat Metheny",
+        "birth_year": 1954,
+        "instrument": "Guitar",
+        "genre": "Jazz",
+        "bio": "Pat Metheny is an American jazz guitarist known for his innovative and diverse musical style. He has won numerous awards, including 20 Grammy Awards across various categories. Metheny's work spans jazz fusion, contemporary jazz, and beyond, showcasing his virtuosity and creativity.",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pat_Metheny.jpg/500px-Pat_Metheny.jpg"
+	}
+]

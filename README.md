@@ -23,36 +23,32 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
 
 ### Artist object
 ```json
-{
-    "artists": [
-		{
-		    "id": "5a3ce90e-82a1-4e58-8c98-4b02a48dc5fe",
-		    "name": "Pat Metheny",
-		    "birth_year": 1954,
-		    "instrument": "Guitar",
-            "genre": "Jazz",
-		    "bio": "Pat Metheny is an American jazz guitarist known for his innovative and diverse musical style. He has won numerous awards, including 20 Grammy Awards across various categories. Metheny's work spans jazz fusion, contemporary jazz, and beyond, showcasing his virtuosity and creativity.",
-		    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pat_Metheny.jpg/500px-Pat_Metheny.jpg"
-		}
-	]
-}
+[
+    {
+        "id": "5a3ce90e-82a1-4e58-8c98-4b02a48dc5fe",
+        "name": "Pat Metheny",
+        "birth_year": 1954,
+        "instrument": "Guitar",
+        "genre": "Jazz",
+        "bio": "Pat Metheny is an American jazz guitarist known for his innovative and diverse musical style. He has won numerous awards, including 20 Grammy Awards across various categories. Metheny's work spans jazz fusion, contemporary jazz, and beyond, showcasing his virtuosity and creativity.",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pat_Metheny.jpg/500px-Pat_Metheny.jpg"
+    }
+]
 ```
 
 ### Song object
 ```json
-{
-  "songs": [
+[
     {
-      "id": "d77eb52b-0707-4bd5-9c23-f3ea69d5b4a1",
-      "artist_id": "5a3ce90e-82a1-4e58-8c98-4b02a48dc5fe",
-      "title": "Last Train Home",
-      "album": "Still Life (Talking)",
-      "year": 1987,
-      "duration": "5:42",
-      "genre": "Jazz Fusion"
+        "id": "d77eb52b-0707-4bd5-9c23-f3ea69d5b4a1",
+        "artist_id": "5a3ce90e-82a1-4e58-8c98-4b02a48dc5fe",
+        "title": "Last Train Home",
+        "album": "Still Life (Talking)",
+        "year": 1987,
+        "duration": "5:42",
+        "genre": "Jazz Fusion"
     },
-  ]
-}
+]
 
 ```
 
@@ -75,6 +71,18 @@ mongosh
 Info: [**MongoDB shell commands cheatsheet**](https://dev.to/arantespp/mongodb-shell-commands-running-on-docker-101-1l73)
 
 Info: [**Get started with MongoDB and Mongoose**](mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/)
+
+## Import data
+In `seed` folder there are two JSON files.
+First we need to copy each file to the container.
+```
+docker cp ./seed/artists.json mongodb:/artists.json
+```
+Second we run **mongoimport** 
+```
+docker exec mongodb mongoimport --db mono --collection artists --file /artists.json --jsonArray --mode upsert
+```
+*The same must be done with the `song.json` file.*
 
 ## Author
 John Raptis

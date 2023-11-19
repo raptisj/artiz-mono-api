@@ -1,0 +1,57 @@
+ [
+    {
+        "_id": {"$oid": "5fc6140f397f9b74b2e8c267"},
+        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "title": "Last Train Home",
+        "album": "Still Life (Talking)",
+        "year": 1987,
+        "duration": "5:42",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {"$oid": "5fc6140f397f9b74b2e8c268"},
+        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "title": "The Way Up: Opening",
+        "album": "The Way Up",
+        "year": 2005,
+        "duration": "4:16",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {"$oid": "5fc6140f397f9b74b2e8c269"},
+        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "title": "Bright Size Life",
+        "album": "Bright Size Life",
+        "year": 1976,
+        "duration": "4:45",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {"$oid": "5fc6140f397f9b74b2e8c26a"},
+        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "title": "Have You Heard",
+        "album": "Letter from Home",
+        "year": 1989,
+        "duration": "6:30",
+        "genre": "Contemporary Jazz"
+    },
+    {
+        "_id": {"$oid": "5fc6140f397f9b74b2e8c26b"},
+        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "title": "Phase Dance",
+        "album": "Pat Metheny Group",
+        "year": 1978,
+        "duration": "8:21",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {"$oid": "5fc6140f397f9b74b2e8c26c"},
+        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "title": "Minuano (Six Eight)",
+        "album": "Still Life (Talking)",
+        "year": 1987,
+        "duration": "10:10",
+        "genre": "Jazz Fusion"
+    }
+]
+  

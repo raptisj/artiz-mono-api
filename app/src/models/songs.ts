@@ -1,20 +1,28 @@
 import { Schema, model } from "mongoose";
 
-const artistsSchema = new Schema({
+const songsSchema = new Schema({
   id: {
     type: Schema.Types.ObjectId,
     required: true,
     unique: true,
   },
-  name: {
+  artist_id: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
+  title: {
     type: String,
     required: true,
   },
-  birth_year: {
+  album: {
+    type: String,
+    required: true,
+  },
+  year: {
     type: Number,
     required: true,
   },
-  instrument: {
+  duration: {
     type: String,
     required: true,
   },
@@ -22,15 +30,7 @@ const artistsSchema = new Schema({
     type: String,
     required: true,
   },
-  bio: {
-    type: String,
-    required: true,
-  },
-  image_url: {
-    type: String,
-    required: true,
-  },
 });
 
-const artistsModel = model("Artists", artistsSchema);
-export default artistsModel;
+const songsModel = model("Songs", songsSchema);
+export default songsModel;

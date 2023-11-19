@@ -3,7 +3,7 @@ dotenv.config();
 import cors from "cors";
 import mongoose from "mongoose";
 
-import artistsModel from "../src/models/artists";
+import artistsRouter from "./routers/artists";
 
 import express from "express";
 
@@ -17,11 +17,7 @@ const mongoURI = process.env.MONGODB_URI;
 
 mongoose.connect(mongoURI);
 
-app.use("/", async (req, res) => {
-  const result = await artistsModel.find();
-  console.log(result, "result");
-  res.send(`${result}`);
-});
+app.use("/api/", artistsRouter);
 
 app.listen(port, () => {
   console.log(`This app listening at http://localhost:${port}`);
