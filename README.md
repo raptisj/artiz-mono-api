@@ -1,4 +1,4 @@
-# Artiz MoNo API
+# 🎹 Artiz MoNo API 🥁
 
 An API that lists artists and their songs. Authenticated users will be able to perform actions such as liking a song or following an artist.
 
@@ -22,7 +22,7 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
 ## Structure of data
 
 ### Artist object
-```
+```json
 {
     "artists": [
 		{
@@ -39,7 +39,7 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
 ```
 
 ### Song object
-```
+```json
 {
   "songs": [
     {
@@ -55,6 +55,26 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
 }
 
 ```
+
+## Usage and Info
+
+```
+git clone git@github.com:raptisj/artiz-mono-api.git
+cd ./artiz-mono-api
+```
+To run:
+```
+docker-compose up —-build
+```
+
+To connect to a MongoDB shell:
+```
+docker exec -it mongodb /bin/bash
+mongosh
+```
+Info: [**MongoDB shell commands cheatsheet**](https://dev.to/arantespp/mongodb-shell-commands-running-on-docker-101-1l73)
+
+Info: [**Get started with MongoDB and Mongoose**](mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/)
 
 ## Author
 John Raptis
