@@ -1,6 +1,6 @@
-# 🎹 Artiz MoNo API 🥁
+# [WIP] 🎹 Artiz MoNo API 🥁
 
-An API that lists artists and their songs. Authenticated users will be able to perform actions such as liking a song or following an artist.
+An API that lists artists and their songs. Authenticated users can perform actions such as liking a song or following an artist.
 
 Technologies used: **Mo**ngoDB, **No**deJS, Docker.
 
@@ -17,7 +17,7 @@ Technologies used: **Mo**ngoDB, **No**deJS, Docker.
 
 ## Generate data
 
-I used ChatGPT to generate the data. To do so youself you can insert the prompts from the `app/content/prompts.md` file.
+I used ChatGPT to generate the data. To do so youself you can insert the prompts from the `data/prompts/index.md` file.
 
 ## Structure of data
 
@@ -25,7 +25,7 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
 ```json
 [
     {
-        "id": "5a3ce90e-82a1-4e58-8c98-4b02a48dc5fe",
+        "id": "5fc612c4397f9b74b2e8c266",
         "name": "Pat Metheny",
         "birth_year": 1954,
         "instrument": "Guitar",
@@ -40,8 +40,8 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
 ```json
 [
     {
-        "id": "d77eb52b-0707-4bd5-9c23-f3ea69d5b4a1",
-        "artist_id": "5a3ce90e-82a1-4e58-8c98-4b02a48dc5fe",
+        "id": "5fc6140f397f9b74b2e8c268",
+        "artist_id": "5fc612c4397f9b74b2e8c266",
         "title": "Last Train Home",
         "album": "Still Life (Talking)",
         "year": 1987,
@@ -73,16 +73,15 @@ Info: [**MongoDB shell commands cheatsheet**](https://dev.to/arantespp/mongodb-s
 Info: [**Get started with MongoDB and Mongoose**](mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/)
 
 ## Import data
-In `seed` folder there are two JSON files.
-First we need to copy each file to the container.
+In the `data` folder there are two JSON files.
+
+First we need to copy each file to the container. Second we run **mongoimport**.
 ```
-docker cp ./seed/artists.json mongodb:/artists.json
+docker cp ./data/artists.json mongodb:/artists.json \
+&& docker exec mongodb mongoimport --db mono --collection artists --file /artists.json --jsonArray --mode upsert \
+&& docker cp ./data/songs.json mongodb:/songs.json \
+&& docker exec mongodb mongoimport --db mono --collection songs --file /songs.json --jsonArray --mode upsert
 ```
-Second we run **mongoimport** 
-```
-docker exec mongodb mongoimport --db mono --collection artists --file /artists.json --jsonArray --mode upsert
-```
-*The same must be done with the `song.json` file.*
 
 ## Author
 John Raptis

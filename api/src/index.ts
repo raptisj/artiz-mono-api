@@ -7,15 +7,15 @@ import artistsRouter from "./routers/artists";
 
 import express from "express";
 
+const mongoURI = process.env.MONGODB_URI;
+
+mongoose.connect(mongoURI);
+
 const port = process.env.PORT || 4000;
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-const mongoURI = process.env.MONGODB_URI;
-
-mongoose.connect(mongoURI);
 
 app.use("/api/", artistsRouter);
 

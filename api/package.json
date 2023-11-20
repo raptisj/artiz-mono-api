@@ -2,9 +2,9 @@
   "name": "artiz-mono-api",
   "version": "1.0.0",
   "description": "An API that lists artists and their songs. Authenticated users will be able to perform actions such as liking a song or following an artist.",
-  "main": "app.ts",
+  "main": "index.ts",
   "scripts": {
-    "start": "nodemon ./src/app.ts",
+    "start": "nodemon ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

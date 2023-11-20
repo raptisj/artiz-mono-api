@@ -11,7 +11,6 @@ services:
     environment:
       MONGO_INITDB_DATABASE: mono
     volumes:
-      - ./seed/:/docker-entrypoint-initdb.d/
       - mongodb-data:/data/db
 
   node:
@@ -19,7 +18,7 @@ services:
     container_name: node
     working_dir: /app
     volumes:
-      - ./app:/app
+      - ./api:/app
     ports:
       - "4000:4000"
     networks:
