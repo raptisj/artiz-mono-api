@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import { UserType } from "types/user";
+import { UserType } from "../types/user";
 
 const verifyUser = (
   req: Request & UserType,

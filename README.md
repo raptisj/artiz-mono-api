@@ -2,7 +2,7 @@
 
 An API that lists artists and their songs. Authenticated users can perform actions such as liking a song or following an artist.
 
-Technologies used: **Mo**ngoDB, **No**deJS, Docker.
+Technologies used: **Mo**ngoDB, **No**deJS, Mongoose and Docker.
 
 ## Features
 
@@ -17,7 +17,7 @@ Technologies used: **Mo**ngoDB, **No**deJS, Docker.
 
 ## Generate data
 
-I used ChatGPT to generate the data. To do so youself you can insert the prompts from the `data/prompts/index.md` file.
+I used ChatGPT to generate the data. To do so youself you can insert the prompts from the `data/prompts/index.md` file. *Replace curly braces with your intended value*
 
 ## Structure of data
 
@@ -101,7 +101,7 @@ Info: [**Get started with MongoDB and Mongoose**](mongodb.com/developer/language
 
 In the `data` folder there are two JSON files.
 
-First we need to copy each file to the container. Second we run **mongoimport**.
+First we need to copy each file to the container. Second we need to run **mongoimport** to populate the database.
 
 ```
 
@@ -115,7 +115,3 @@ docker cp ./data/artists.json mongodb:/artists.json \
 ## Author
 
 John Raptis
-
-```
-
-```
