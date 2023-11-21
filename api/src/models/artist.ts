@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const artistsSchema = new Schema({
+const artistSchema = new Schema({
   id: {
     type: Schema.Types.ObjectId,
     required: true,
@@ -32,5 +32,5 @@ const artistsSchema = new Schema({
   },
 });
 
-const artistsModel = model("Artists", artistsSchema);
-export default artistsModel;
+const artistModel = model("Artists", artistSchema);
+export default artistModel;

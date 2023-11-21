@@ -3,7 +3,8 @@ dotenv.config();
 import cors from "cors";
 import mongoose from "mongoose";
 
-import artistsRouter from "./routers/artists";
+import artistRouter from "./routers/artist";
+import userRouter from './routers/user'
 
 import express from "express";
 
@@ -17,7 +18,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/", artistsRouter);
+app.use("/api/", artistRouter);
+app.use("/api/", userRouter);
 
 app.listen(port, () => {
   console.log(`This app listening at http://localhost:${port}`);

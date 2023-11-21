@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import artists from "../models/artists";
-import songs from "../models/songs";
+import artists from "../models/artist";
+import songs from "../models/song";
 
 //@desc Get all artists
 //@route GET /api/artists
