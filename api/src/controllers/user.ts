@@ -147,6 +147,53 @@ const removeLikedSongs = async (req: RequestTypeWithUser, res: Response) => {
   }
 };
 
+//@desc Follow an artist
+//@route PUT /api/users/me/following
+//@access private
+const addFollowing = async (req: RequestTypeWithUser, res: Response) => {
+  const { artist_id } = req.body;
+  const userId = req.user.id;
+
+  try {
+    const user = await users.findOne({ _id: userId });
+    const isFollowing = user.following.includes(artist_id);
+
+    if (!isFollowing) {
+      const updatedUser = await users.updateOne(
+        { _id: userId },
+        { $push: { following: artist_id } },
+        { new: true }
+      );
+
+      res.json(updatedUser);
+    } else {
+      res.json(user);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//@desc Unfollow an artist
+//@route PUT /api/users/me/remove_following
+//@access private
+const removeFollowing = async (req: RequestTypeWithUser, res: Response) => {
+  const { artist_id } = req.body;
+  const userId = req.user.id;
+
+  try {
+    const user = await users.findOneAndUpdate(
+      { _id: userId },
+      { $pull: { following: artist_id } },
+      { new: true }
+    );
+
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export {
   register,
   login,
@@ -154,4 +201,6 @@ export {
   userProfile,
   addLikedSongs,
   removeLikedSongs,
+  addFollowing,
+  removeFollowing
 };
