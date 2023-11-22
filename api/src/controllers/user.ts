@@ -1,13 +1,15 @@
 import { Request, Response } from "express";
-import users from "../models/user";
 import bcrypt from "bcrypt";
-import { UserType } from "../types/user";
+import { RequestTypeWithUser } from "../types/user";
+import users from "../models/user";
+import artists from "../models/artist";
+import songs from "../models/song";
 import mongoose from "mongoose";
 import { jwtSign } from "../utils/user";
 import { getMongooseValidationErrors } from "../utils/errorHandling";
 
 //@desc Register new user
-//@route POST /api/auth/register
+//@route POST /api/users/register
 //@access public
 const register = async (req: Request, res: Response) => {
   const { username, email, password } = req.body;
@@ -40,7 +42,7 @@ const register = async (req: Request, res: Response) => {
 };
 
 //@desc Login a current user
-//@route GET /api/auth/login
+//@route GET /api/users/login
 //@access public
 const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
@@ -65,9 +67,9 @@ const login = async (req: Request, res: Response) => {
 };
 
 //@desc Get current user
-//@route GET /api/auth/currentUser
+//@route GET /api/users/currentUser
 //@access private
-const currentUser = async (req: Request & UserType, res: Response) => {
+const currentUser = async (req: RequestTypeWithUser, res: Response) => {
   try {
     res.json(req.user);
   } catch (error) {
@@ -75,4 +77,81 @@ const currentUser = async (req: Request & UserType, res: Response) => {
   }
 };
 
-export { register, login, currentUser };
+//@desc Get current user's profile along with the songs they liked and the artists they follow
+//@route GET /api/users/me
+//@access private
+const userProfile = async (req: RequestTypeWithUser, res: Response) => {
+  const user = await users.findOne({ _id: req.user.id });
+
+  const followingArtists = await artists.find({
+    _id: { $in: user.following },
+  });
+
+  const likedSongs = await songs.find({
+    _id: { $in: user.liked_songs },
+  });
+
+  try {
+    res.json({ profile: user, likedSongs, followingArtists });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//@desc Mark a song as liked
+//@route PUT /api/users/me/song
+//@access private
+const addLikedSongs = async (req: RequestTypeWithUser, res: Response) => {
+  const { song_id } = req.body;
+  const userId = req.user.id;
+
+  try {
+    const user = await users.findOne({ _id: userId });
+    const isLiked = user.liked_songs.includes(song_id);
+
+    if (!isLiked) {
+      const updatedUser = await users.updateOne(
+        { _id: userId },
+        { $push: { liked_songs: song_id } },
+        { new: true }
+      );
+
+      res.json(updatedUser);
+    } else {
+      res.json(user);
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: "Something went wrong!" });
+  }
+};
+
+//@desc Remove a song from liked list
+//@route PUT /api/users/me/remove_song
+//@access private
+const removeLikedSongs = async (req: RequestTypeWithUser, res: Response) => {
+  const { song_id } = req.body;
+  const userId = req.user.id;
+
+  try {
+    const user = await users.findOneAndUpdate(
+      { _id: userId },
+      { $pull: { liked_songs: song_id } },
+      { new: true }
+    );
+
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: "Something went wrong!" });
+  }
+};
+
+export {
+  register,
+  login,
+  currentUser,
+  userProfile,
+  addLikedSongs,
+  removeLikedSongs,
+};

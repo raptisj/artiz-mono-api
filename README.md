@@ -49,7 +49,7 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
         "year": 1987,
         "duration": "5:42",
         "genre": "Jazz Fusion"
-    },
+    }
 ]
 ```
 
