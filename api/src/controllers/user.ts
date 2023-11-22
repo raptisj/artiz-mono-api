@@ -107,7 +107,7 @@ const addLikedSongs = async (req: RequestTypeWithUser, res: Response) => {
 
   try {
     const user = await users.findOne({ _id: userId });
-    const isLiked = user.liked_songs.includes(song_id);
+    const isLiked = user.existsInFavorite(song_id);
 
     if (!isLiked) {
       const updatedUser = await users.updateOne(
@@ -156,7 +156,7 @@ const addFollowing = async (req: RequestTypeWithUser, res: Response) => {
 
   try {
     const user = await users.findOne({ _id: userId });
-    const isFollowing = user.following.includes(artist_id);
+    const isFollowing = user.existsInFollowing(artist_id);
 
     if (!isFollowing) {
       const updatedUser = await users.updateOne(
@@ -202,5 +202,5 @@ export {
   addLikedSongs,
   removeLikedSongs,
   addFollowing,
-  removeFollowing
+  removeFollowing,
 };

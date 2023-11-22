@@ -30,6 +30,14 @@ const userSchema = new Schema(
   },
   {
     timestamps: true,
+    methods: {
+      existsInFollowing(artist_id: string) {
+        return this.following.includes(artist_id);
+      },
+      existsInFavorite(song_id: string) {
+        return this.liked_songs.includes(song_id);
+      },
+    },
   }
 );
 

@@ -3,8 +3,8 @@ import { Request } from "express";
 
 export type UserObject = {
   id?: string;
-  username: string;
-  email: string;
+  username?: string;
+  email?: string;
   liked_songs?: string[];
   following?: string[];
   createdAt?: NativeDate;
