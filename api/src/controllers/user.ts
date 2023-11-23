@@ -80,19 +80,32 @@ const currentUser = async (req: RequestTypeWithUser, res: Response) => {
 //@desc Get current user's profile along with the songs they liked and the artists they follow
 //@route GET /api/users/me
 //@access private
+//query params ?following=true&liked_songs=true to embed objects in response
 const userProfile = async (req: RequestTypeWithUser, res: Response) => {
-  const user = await users.findOne({ _id: req.user.id });
-
-  const followingArtists = await artists.find({
-    _id: { $in: user.following },
-  });
-
-  const likedSongs = await songs.find({
-    _id: { $in: user.liked_songs },
-  });
+  const following = req.query.following;
+  const liked_songs = req.query.liked_songs;
 
   try {
-    res.json({ profile: user, likedSongs, followingArtists });
+    const user = await users.findOne({ _id: req.user.id }, { password: 0 });
+    const result = { profile: user } as any;
+
+    if (following) {
+      const followingArtists = await artists.find({
+        _id: { $in: user.following },
+      });
+
+      result.followingArtists = followingArtists;
+    }
+
+    if (liked_songs) {
+      const likedSongs = await songs.find({
+        _id: { $in: user.liked_songs },
+      });
+
+      result.likedSongs = likedSongs;
+    }
+
+    res.json(result);
   } catch (error) {
     console.log(error);
   }
@@ -106,7 +119,7 @@ const addLikedSongs = async (req: RequestTypeWithUser, res: Response) => {
   const userId = req.user.id;
 
   try {
-    const user = await users.findOne({ _id: userId });
+    const user = await users.findOne({ _id: userId }, { password: 0 });
     const isLiked = user.existsInFavorite(song_id);
 
     if (!isLiked) {
@@ -155,7 +168,7 @@ const addFollowing = async (req: RequestTypeWithUser, res: Response) => {
   const userId = req.user.id;
 
   try {
-    const user = await users.findOne({ _id: userId });
+    const user = await users.findOne({ _id: userId }, { password: 0 });
     const isFollowing = user.existsInFollowing(artist_id);
 
     if (!isFollowing) {
