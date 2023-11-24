@@ -4,7 +4,8 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 import artistRouter from "./routers/artist";
-import userRouter from './routers/user'
+import userRouter from "./routers/user";
+import playlistRouter from "./routers/playlist";
 
 import express from "express";
 
@@ -20,6 +21,7 @@ app.use(express.json());
 
 app.use("/api/", artistRouter);
 app.use("/api/", userRouter);
+app.use("/api/", playlistRouter);
 
 app.listen(port, () => {
   console.log(`This app listening at http://localhost:${port}`);

@@ -1,4 +1,4 @@
-# [WIP] 🎹 Artiz MoNo API 🥁
+# 🎹 Artiz MoNo API 🥁
 
 An API that lists artists and their songs. Authenticated users can perform actions such as liking a song or following an artist.
 
@@ -17,7 +17,7 @@ Technologies used: **Mo**ngoDB, **No**deJS, Mongoose and Docker.
 
 ## Generate data
 
-I used ChatGPT to generate the data. To do so youself you can insert the prompts from the `data/prompts/index.md` file. *Replace curly braces with your intended value*
+I used ChatGPT to generate the data. To do so youself you can insert the prompts from the `data/prompts/index.md` file. _Replace curly braces with your intended value_
 
 ## Structure of data
 
@@ -26,7 +26,7 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
 ```json
 [
   {
-    "id": "5fc612c4397f9b74b2e8c266",
+    "_id": "5fc612c4397f9b74b2e8c266",
     "name": "Pat Metheny",
     "birth_year": 1954,
     "instrument": "Guitar",
@@ -41,31 +41,47 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
 
 ```json
 [
-    {
-        "id": "5fc6140f397f9b74b2e8c268",
-        "artist_id": "5fc612c4397f9b74b2e8c266",
-        "title": "Last Train Home",
-        "album": "Still Life (Talking)",
-        "year": 1987,
-        "duration": "5:42",
-        "genre": "Jazz Fusion"
-    }
+  {
+    "_id": "5fc6140f397f9b74b2e8c268",
+    "artist_id": "5fc612c4397f9b74b2e8c266",
+    "title": "Last Train Home",
+    "album": "Still Life (Talking)",
+    "year": 1987,
+    "duration": "5:42",
+    "genre": "Jazz Fusion"
+  }
 ]
 ```
-
 
 ### User
 
 ```json
 [
-    {
-        "username": "doe",
-        "email": "joe@doe.com",
-        "liked_songs": [1, 2, 3], // [songId]
-        "following": [11, 22, 33], // [artistId]
-    }
+  {
+    "_id": "09d6140f397f5b74b4e8c244",
+    "username": "doe",
+    "email": "joe@doe.com",
+    "liked_songs": ["1", "2", "3"], // [songId]
+    "following": ["11", "22", "33"] // [artistId]
+  }
 ]
-````
+```
+
+### Playlist
+
+```json
+[
+  {
+    "_id": "09d6140f397f5b74b4e8c244",
+    "user_id": "9d6147f58c244b700f394b4e",
+    "song_ids": ["1", "2", "3"],
+    "title": "Jazz hits",
+    "description": "A smooth collection",
+    "song_count": 4,
+    "total_track_duration_in_seconds": 1123123
+  }
+]
+```
 
 ## Usage and Info
 
@@ -102,6 +118,8 @@ Info: [**Get started with MongoDB and Mongoose**](mongodb.com/developer/language
 In the `data` folder there are two JSON files.
 
 First we need to copy each file to the container. Second we need to run **mongoimport** to populate the database.
+
+_Note: Mongo usually generates an \_id of type ObjectId for us. Here we add it explicitly in a format that mongoimport can understand in order to generate an \_id in the correct format._
 
 ```
 

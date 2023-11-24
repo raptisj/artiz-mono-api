@@ -1,16 +1,15 @@
 import { Schema, model } from "mongoose";
 
 const artistSchema = new Schema({
-  id: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    unique: true,
-  },
   name: {
     type: String,
     required: true,
   },
   birth_year: {
+    type: Number,
+    required: true,
+  },
+  death_year: {
     type: Number,
     required: true,
   },
@@ -26,11 +25,7 @@ const artistSchema = new Schema({
     type: String,
     required: true,
   },
-  image_url: {
-    type: String,
-    required: true,
-  },
 });
 
-const artistModel = model("Artists", artistSchema);
+const artistModel = model("Artist", artistSchema);
 export default artistModel;

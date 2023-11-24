@@ -1,11 +1,6 @@
 import { Schema, model } from "mongoose";
 
 const songsSchema = new Schema({
-  id: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    unique: true,
-  },
   artist_id: {
     type: Schema.Types.ObjectId,
     required: true,
@@ -32,5 +27,5 @@ const songsSchema = new Schema({
   },
 });
 
-const songsModel = model("Songs", songsSchema);
+const songsModel = model("Song", songsSchema);
 export default songsModel;

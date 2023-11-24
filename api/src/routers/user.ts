@@ -24,4 +24,5 @@ router.put(
   verifyUser,
   userController.removeFollowing
 );
+
 export { router as default };

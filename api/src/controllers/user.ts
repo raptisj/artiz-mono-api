@@ -4,6 +4,7 @@ import { RequestTypeWithUser } from "../types/user";
 import users from "../models/user";
 import artists from "../models/artist";
 import songs from "../models/song";
+import playlists from "../models/playlist";
 import mongoose from "mongoose";
 import { jwtSign } from "../utils/user";
 import { getMongooseValidationErrors } from "../utils/errorHandling";
@@ -34,7 +35,7 @@ const register = async (req: Request, res: Response) => {
     if (error instanceof mongoose.Error.ValidationError) {
       const validationErrors = getMongooseValidationErrors(error);
 
-      res.status(400).json({ errors: validationErrors });
+      res.status(404).json({ errors: validationErrors });
     }
 
     res.status(400).json({ message: "Something went wrong!" });
@@ -80,13 +81,15 @@ const currentUser = async (req: RequestTypeWithUser, res: Response) => {
 //@desc Get current user's profile along with the songs they liked and the artists they follow
 //@route GET /api/users/me
 //@access private
-//query params ?following=true&liked_songs=true to embed objects in response
+//query params ?following=true&liked_songs=true&playlist_collection=true to embed objects in response
 const userProfile = async (req: RequestTypeWithUser, res: Response) => {
   const following = req.query.following;
   const liked_songs = req.query.liked_songs;
+  const playlist_collection = req.query.playlists;
+  const userId = req.user.id;
 
   try {
-    const user = await users.findOne({ _id: req.user.id }, { password: 0 });
+    const user = await users.findOne({ _id: userId }, { password: 0 });
     const result = { profile: user } as any;
 
     if (following) {
@@ -103,6 +106,14 @@ const userProfile = async (req: RequestTypeWithUser, res: Response) => {
       });
 
       result.likedSongs = likedSongs;
+    }
+
+    if (playlist_collection) {
+      const playlistCollection = await playlists.find({
+        user_id: userId,
+      });
+
+      result.playlistCollection = playlistCollection;
     }
 
     res.json(result);

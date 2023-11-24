@@ -1,7 +1,11 @@
- [
+[
     {
-        "_id": {"$oid": "5fc6140f397f9b74b2e8c267"},
-        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "_id": {
+            "$oid": "5fc6140f397f9b74b2e8c267"
+        },
+        "artist_id": {
+            "$oid": "5fc612c4397f9b74b2e8c266"
+        },
         "title": "Last Train Home",
         "album": "Still Life (Talking)",
         "year": 1987,
@@ -9,8 +13,12 @@
         "genre": "Jazz Fusion"
     },
     {
-        "_id": {"$oid": "5fc6140f397f9b74b2e8c268"},
-        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "_id": {
+            "$oid": "5fc6140f397f9b74b2e8c268"
+        },
+        "artist_id": {
+            "$oid": "5fc612c4397f9b74b2e8c266"
+        },
         "title": "The Way Up: Opening",
         "album": "The Way Up",
         "year": 2005,
@@ -18,8 +26,12 @@
         "genre": "Jazz Fusion"
     },
     {
-        "_id": {"$oid": "5fc6140f397f9b74b2e8c269"},
-        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "_id": {
+            "$oid": "5fc6140f397f9b74b2e8c269"
+        },
+        "artist_id": {
+            "$oid": "5fc612c4397f9b74b2e8c266"
+        },
         "title": "Bright Size Life",
         "album": "Bright Size Life",
         "year": 1976,
@@ -27,8 +39,12 @@
         "genre": "Jazz Fusion"
     },
     {
-        "_id": {"$oid": "5fc6140f397f9b74b2e8c26a"},
-        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "_id": {
+            "$oid": "5fc6140f397f9b74b2e8c26a"
+        },
+        "artist_id": {
+            "$oid": "5fc612c4397f9b74b2e8c266"
+        },
         "title": "Have You Heard",
         "album": "Letter from Home",
         "year": 1989,
@@ -36,8 +52,12 @@
         "genre": "Contemporary Jazz"
     },
     {
-        "_id": {"$oid": "5fc6140f397f9b74b2e8c26b"},
-        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "_id": {
+            "$oid": "5fc6140f397f9b74b2e8c26b"
+        },
+        "artist_id": {
+            "$oid": "5fc612c4397f9b74b2e8c266"
+        },
         "title": "Phase Dance",
         "album": "Pat Metheny Group",
         "year": 1978,
@@ -45,13 +65,484 @@
         "genre": "Jazz Fusion"
     },
     {
-        "_id": {"$oid": "5fc6140f397f9b74b2e8c26c"},
-        "artist_id": {"$oid": "5fc612c4397f9b74b2e8c266"},
+        "_id": {
+            "$oid": "5fc6140f397f9b74b2e8c26c"
+        },
+        "artist_id": {
+            "$oid": "5fc612c4397f9b74b2e8c266"
+        },
         "title": "Minuano (Six Eight)",
         "album": "Still Life (Talking)",
         "year": 1987,
         "duration": "10:10",
         "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {
+            "$oid": "60a729f25159b52c7c5c6d83"
+        },
+        "artist_id": {
+            "$oid": "60a729f25159b52c7c5c6d82"
+        },
+        "title": "So What",
+        "album": "Kind of Blue",
+        "year": 1959,
+        "duration": "9:22",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a729f25159b52c7c5c6d84"
+        },
+        "artist_id": {
+            "$oid": "60a729f25159b52c7c5c6d82"
+        },
+        "title": "Freddie Freeloader",
+        "album": "Kind of Blue",
+        "year": 1959,
+        "duration": "9:46",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a729f25159b52c7c5c6d85"
+        },
+        "artist_id": {
+            "$oid": "60a729f25159b52c7c5c6d82"
+        },
+        "title": "All Blues",
+        "album": "Kind of Blue",
+        "year": 1959,
+        "duration": "11:32",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a729f25159b52c7c5c6d86"
+        },
+        "artist_id": {
+            "$oid": "60a729f25159b52c7c5c6d82"
+        },
+        "title": "Blue in Green",
+        "album": "Kind of Blue",
+        "year": 1959,
+        "duration": "5:37",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a729f25159b52c7c5c6d87"
+        },
+        "artist_id": {
+            "$oid": "60a729f25159b52c7c5c6d82"
+        },
+        "title": "Milestones",
+        "album": "Milestones",
+        "year": 1958,
+        "duration": "5:44",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a729f25159b52c7c5c6d88"
+        },
+        "artist_id": {
+            "$oid": "60a729f25159b52c7c5c6d82"
+        },
+        "title": "Round Midnight",
+        "album": "Round About Midnight",
+        "year": 1957,
+        "duration": "5:58",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d8a"
+        },
+        "artist_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d89"
+        },
+        "title": "Giant Steps",
+        "album": "Giant Steps",
+        "year": 1960,
+        "duration": "4:49",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d8b"
+        },
+        "artist_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d89"
+        },
+        "title": "My Favorite Things",
+        "album": "My Favorite Things",
+        "year": 1961,
+        "duration": "13:41",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d8c"
+        },
+        "artist_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d89"
+        },
+        "title": "A Love Supreme Part I: Acknowledgement",
+        "album": "A Love Supreme",
+        "year": 1965,
+        "duration": "7:42",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d8d"
+        },
+        "artist_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d89"
+        },
+        "title": "Naima",
+        "album": "Giant Steps",
+        "year": 1960,
+        "duration": "4:21",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d8e"
+        },
+        "artist_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d89"
+        },
+        "title": "Resolution",
+        "album": "A Love Supreme",
+        "year": 1965,
+        "duration": "7:20",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d8f"
+        },
+        "artist_id": {
+            "$oid": "60a72a2a5159b52c7c5c6d89"
+        },
+        "title": "Afro Blue",
+        "album": "Giant Steps",
+        "year": 1963,
+        "duration": "10:49",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a745159b52c7c5c6d91"
+        },
+        "artist_id": {
+            "$oid": "60a72a745159b52c7c5c6d90"
+        },
+        "title": "Idle Moments",
+        "album": "Idle Moments",
+        "year": 1963,
+        "duration": "14:56",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a745159b52c7c5c6d92"
+        },
+        "artist_id": {
+            "$oid": "60a72a745159b52c7c5c6d90"
+        },
+        "title": "Grant's First Stand",
+        "album": "Grant's First Stand",
+        "year": 1961,
+        "duration": "15:57",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a745159b52c7c5c6d93"
+        },
+        "artist_id": {
+            "$oid": "60a72a745159b52c7c5c6d90"
+        },
+        "title": "Matador",
+        "album": "Matador",
+        "year": 1979,
+        "duration": "10:30",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a745159b52c7c5c6d94"
+        },
+        "artist_id": {
+            "$oid": "60a72a745159b52c7c5c6d90"
+        },
+        "title": "Blues for Lou",
+        "album": "Matador",
+        "year": 1979,
+        "duration": "11:33",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a745159b52c7c5c6d95"
+        },
+        "artist_id": {
+            "$oid": "60a72a745159b52c7c5c6d90"
+        },
+        "title": "Jean de Fleur",
+        "album": "The Main Attraction",
+        "year": 1976,
+        "duration": "11:16",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a745159b52c7c5c6d96"
+        },
+        "artist_id": {
+            "$oid": "60a72a745159b52c7c5c6d90"
+        },
+        "title": "Sookie, Sookie",
+        "album": "Green is Beautiful",
+        "year": 1970,
+        "duration": "7:20",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d98"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d97"
+        },
+        "title": "Chameleon",
+        "album": "Head Hunters",
+        "year": 1973,
+        "duration": "15:41",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d99"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d97"
+        },
+        "title": "Cantaloupe Island",
+        "album": "Empyrean Isles",
+        "year": 1964,
+        "duration": "5:32",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d9a"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d97"
+        },
+        "title": "Watermelon Man",
+        "album": "Takin' Off",
+        "year": 1962,
+        "duration": "7:09",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d9b"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d97"
+        },
+        "title": "Rockit",
+        "album": "Future Shock",
+        "year": 1983,
+        "duration": "5:25",
+        "genre": "Electro, Hip Hop"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d9c"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d97"
+        },
+        "title": "Maiden Voyage",
+        "album": "Maiden Voyage",
+        "year": 1965,
+        "duration": "7:58",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d9d"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6d97"
+        },
+        "title": "Cantelope Island",
+        "album": "Empyrean Isles",
+        "year": 1964,
+        "duration": "5:32",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da6"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da5"
+        },
+        "title": "St. Thomas",
+        "album": "Saxophone Colossus",
+        "year": 1956,
+        "duration": "6:48",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da7"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da5"
+        },
+        "title": "Oleo",
+        "album": "Saxophone Colossus",
+        "year": 1956,
+        "duration": "5:15",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da8"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da5"
+        },
+        "title": "Blue Seven",
+        "album": "Saxophone Colossus",
+        "year": 1956,
+        "duration": "11:15",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da9"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da5"
+        },
+        "title": "Autumn Nocturne",
+        "album": "Volume 2",
+        "year": 1957,
+        "duration": "6:42",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6daa"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da5"
+        },
+        "title": "Pent-Up House",
+        "album": "Saxophone Colossus",
+        "year": 1956,
+        "duration": "5:32",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6dab"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6da5"
+        },
+        "title": "Doxy",
+        "album": "Saxophone Colossus",
+        "year": 1956,
+        "duration": "6:51",
+        "genre": "Jazz"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6dad"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6dac"
+        },
+        "title": "Stratus",
+        "album": "Spectrum",
+        "year": 1973,
+        "duration": "9:48",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6dae"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6dac"
+        },
+        "title": "Red Baron",
+        "album": "Spectrum",
+        "year": 1973,
+        "duration": "6:34",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6daf"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6dac"
+        },
+        "title": "Spanish Moss - A Sound Portrait",
+        "album": "Crosswinds",
+        "year": 1974,
+        "duration": "5:10",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6db0"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6dac"
+        },
+        "title": "A Funky Thide of Sings",
+        "album": "A Funky Thide of Sings",
+        "year": 1975,
+        "duration": "23:21",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6db1"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6dac"
+        },
+        "title": "Quadrant 4",
+        "album": "Spectrum",
+        "year": 1973,
+        "duration": "4:20",
+        "genre": "Jazz Fusion"
+    },
+    {
+        "_id": {
+            "$oid": "60a72a9a5159b52c7c5c6db2"
+        },
+        "artist_id": {
+            "$oid": "60a72a9a5159b52c7c5c6dac"
+        },
+        "title": "Le Lis",
+        "album": "Spectrum",
+        "year": 1973,
+        "duration": "5:57",
+        "genre": "Jazz Fusion"
     }
 ]
-  

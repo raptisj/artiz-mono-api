@@ -2,11 +2,6 @@ import { Schema, model } from "mongoose";
 
 const userSchema = new Schema(
   {
-    id: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      unique: true,
-    },
     username: {
       type: String,
       required: [true, "Please add a user name"],
