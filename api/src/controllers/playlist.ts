@@ -106,6 +106,11 @@ const addSongToPlaylist = async (req: RequestTypeWithUser, res: Response) => {
         { new: true }
       );
 
+      await songs.updateOne(
+        { _id: song_id },
+        { $push: { added_to_playlist_dates: { song_id } } }
+      );
+
       res.status(200).json(updatedPlaylist);
     } else {
       res.status(400).json({ message: "Song is already in playlist" });
@@ -140,6 +145,11 @@ const removeSongToPlaylist = async (
         },
       },
       { new: true }
+    );
+
+    await songs.updateOne(
+      { _id: song_id },
+      { $pull: { added_to_playlist_dates: { song_id } } }
     );
 
     res.json(updatedPlaylist);

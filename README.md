@@ -14,74 +14,7 @@ Technologies used: **Mo**ngoDB, **No**deJS, Mongoose and Docker.
 - liked songs
 - create playlists
 - user profile
-
-## Generate data
-
-I used ChatGPT to generate the data. To do so youself you can insert the prompts from the `data/prompts/index.md` file. _Replace curly braces with your intended value_
-
-## Structure of data
-
-### Artist
-
-```json
-[
-  {
-    "_id": "5fc612c4397f9b74b2e8c266",
-    "name": "Pat Metheny",
-    "birth_year": 1954,
-    "instrument": "Guitar",
-    "genre": "Jazz",
-    "bio": "Pat Metheny is an American jazz guitarist known for his innovative and diverse musical style. He has won numerous awards, including 20 Grammy Awards across various categories. Metheny's work spans jazz fusion, contemporary jazz, and beyond, showcasing his virtuosity and creativity.",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pat_Metheny.jpg/500px-Pat_Metheny.jpg"
-  }
-]
-```
-
-### Song
-
-```json
-[
-  {
-    "_id": "5fc6140f397f9b74b2e8c268",
-    "artist_id": "5fc612c4397f9b74b2e8c266",
-    "title": "Last Train Home",
-    "album": "Still Life (Talking)",
-    "year": 1987,
-    "duration": "5:42",
-    "genre": "Jazz Fusion"
-  }
-]
-```
-
-### User
-
-```json
-[
-  {
-    "_id": "09d6140f397f5b74b4e8c244",
-    "username": "doe",
-    "email": "joe@doe.com",
-    "liked_songs": ["1", "2", "3"],
-    "following": ["11", "22", "33"]
-  }
-]
-```
-
-### Playlist
-
-```json
-[
-  {
-    "_id": "09d6140f397f5b74b4e8c244",
-    "user_id": "9d6147f58c244b700f394b4e",
-    "song_ids": ["1", "2", "3"],
-    "title": "Jazz hits",
-    "description": "A smooth collection",
-    "song_count": 4,
-    "total_track_duration_in_seconds": 1123123
-  }
-]
-```
+- pagination
 
 ## Usage and Info
 
@@ -113,6 +46,10 @@ Info: [**MongoDB shell commands cheatsheet**](https://dev.to/arantespp/mongodb-s
 
 Info: [**Get started with MongoDB and Mongoose**](mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/)
 
+## Generate data
+
+I used ChatGPT to generate the data. To do so youself you can insert the prompts from the `data/prompts/index.md` file. _Replace curly braces with your intended value_
+
 ## Import data
 
 In the `data` folder there are two JSON files.
@@ -128,6 +65,72 @@ docker cp ./data/artists.json mongodb:/artists.json \
 && docker cp ./data/songs.json mongodb:/songs.json \
 && docker exec mongodb mongoimport --db mono --collection songs --drop --file /songs.json --jsonArray --mode upsert
 
+```
+
+## Structure of data
+
+### Artist
+
+```json
+[
+  {
+    "_id": "5fc612c4397f9b74b2e8c266",
+    "name": "Pat Metheny",
+    "birth_year": 1954,
+    "instrument": "Guitar",
+    "genre": "Jazz",
+    "bio": "Pat Metheny is an American jazz guitarist known for his innovative and diverse musical style. He has won numerous awards, including 20 Grammy Awards across various categories. Metheny's work spans jazz fusion, contemporary jazz, and beyond, showcasing his virtuosity and creativity.",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pat_Metheny.jpg/500px-Pat_Metheny.jpg"
+  }
+]
+```
+
+### Song
+
+```json
+[
+  {
+    "_id": "5fc6140f397f9b74b2e8c268",
+    "artist_id": "5fc612c4397f9b74b2e8c266",
+    "title": "Last Train Home",
+    "album": "Still Life (Talking)",
+    "year": 1987,
+    "duration": "5:42",
+    "genre": "Jazz Fusion",
+    "added_to_playlist_dates": "2023-11-24T18:38:34.064Z" // only visible within a playlist
+  }
+]
+```
+
+### User
+
+```json
+[
+  {
+    "_id": "09d6140f397f5b74b4e8c244",
+    "username": "doe",
+    "email": "joe@doe.com",
+    "liked_songs": ["1", "2", "3"],
+    "following": ["11", "22", "33"]
+  }
+]
+```
+
+### Playlist
+
+```json
+[
+  {
+    "_id": "09d6140f397f5b74b4e8c244",
+    "user_id": "9d6147f58c244b700f394b4e",
+    "song_ids": ["1", "2", "3"],
+    "title": "Jazz hits",
+    "description": "A smooth collection",
+    "song_count": 4,
+    "total_track_duration_in_seconds": 1123123,
+    "total_track_duration": "1h 20m" // from a virtual
+  }
+]
 ```
 
 ## Author

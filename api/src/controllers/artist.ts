@@ -34,7 +34,10 @@ const getSingle = async (req: Request, res: Response) => {
 
   try {
     const artist = await artists.findOne({ _id: id });
-    const artistSongs = await songs.find({ artist_id: id });
+    const artistSongs = await songs.find(
+      { artist_id: id },
+      { added_to_playlist_dates: 0 }
+    );
 
     res.status(200).json({ artist, songs: artistSongs });
   } catch (e) {

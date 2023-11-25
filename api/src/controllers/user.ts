@@ -101,9 +101,12 @@ const userProfile = async (req: RequestTypeWithUser, res: Response) => {
     }
 
     if (liked_songs) {
-      const likedSongs = await songs.find({
-        _id: { $in: user.liked_songs },
-      });
+      const likedSongs = await songs.find(
+        {
+          _id: { $in: user.liked_songs },
+        },
+        { added_to_playlist_dates: 0 }
+      );
 
       result.likedSongs = likedSongs;
     }

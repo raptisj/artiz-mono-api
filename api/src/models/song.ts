@@ -25,6 +25,17 @@ const songsSchema = new Schema({
     type: String,
     required: true,
   },
+  added_to_playlist_dates: {
+    type: [
+      {
+        song_id: String,
+        date: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
+  },
 });
 
 const songsModel = model("Song", songsSchema);
