@@ -5,7 +5,6 @@ import { verifyUser } from "../middleware/verifyUser";
 
 const router = express.Router();
 
-// playlists
 router.get("/users/playlists", verifyUser, playlistController.getAll);
 router.get("/users/playlists/:id", verifyUser, playlistController.getSingle);
 router.post("/users/playlists", verifyUser, playlistController.createPlaylist);

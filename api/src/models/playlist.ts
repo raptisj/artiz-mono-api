@@ -33,11 +33,18 @@ const playlistSchema = new Schema(
         return this.song_ids.includes(song_id);
       },
     },
+    query: {
+      totalItems() {
+        return this.countDocuments();
+      },
+    },
     virtuals: {
       total_track_duration: {
         get: function () {
           const hours = Math.floor(this.total_track_duration_in_seconds / 3600);
-          const minutes = Math.floor((this.total_track_duration_in_seconds % 3600) / 60);
+          const minutes = Math.floor(
+            (this.total_track_duration_in_seconds % 3600) / 60
+          );
 
           return !hours ? `${minutes} min` : `${hours} hr ${minutes} min`;
         },

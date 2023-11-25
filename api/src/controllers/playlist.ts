@@ -5,17 +5,27 @@ import { RequestTypeWithUser } from "src/types/user";
 import mongoose from "mongoose";
 import { getMongooseValidationErrors } from "../utils/errorHandling";
 import { durationToSeconds } from "../utils/playlist";
+import { setPagination } from "../utils/pagination";
 
 //@desc Get all playlists
-//@route GET /api/playlists
+//@route GET /api/users/playlists
 //@access private
+//query params ?size=15&page=2
 const getAll = async (req: RequestTypeWithUser, res: Response) => {
   const userId = req.user.id;
+  const page = Number(req.query.page) || 1;
+  const pageSize = Number(req.query.size) || 20;
 
   try {
-    const results = await playlists.find({ user_id: userId });
+    const totalItems = await playlists.find().totalItems();
+    const results = await playlists
+      .find({ user_id: userId })
+      .skip((page - 1) * pageSize) // this approach can have a negative impact on performance when dealing with larger datasets
+      .limit(pageSize);
 
-    res.status(200).json(results);
+    const pagination = setPagination(page, pageSize, totalItems);
+
+    res.status(200).json({ pagination, playlists: results });
   } catch (error) {
     console.log(error);
     res.status(400).json({ message: "Something went wrong!" });
@@ -23,7 +33,7 @@ const getAll = async (req: RequestTypeWithUser, res: Response) => {
 };
 
 //@desc Get single playlist with
-//@route GET /api/playlists/:id
+//@route GET /api/users/playlists/:id
 //@access private
 const getSingle = async (req: RequestTypeWithUser, res: Response) => {
   const id = req.params.id;
@@ -41,7 +51,7 @@ const getSingle = async (req: RequestTypeWithUser, res: Response) => {
 };
 
 //@desc Create playlist
-//@route POST /api/playlists
+//@route POST /api/users/playlists
 //@access private
 const createPlaylist = async (req: RequestTypeWithUser, res: Response) => {
   const { title, description } = req.body;
@@ -71,7 +81,7 @@ const createPlaylist = async (req: RequestTypeWithUser, res: Response) => {
 };
 
 //@desc Update playlist by adding a song
-//@route PUT /api/playlists/:id/add
+//@route PUT /api/users/playlists/:id/add
 //@access private
 const addSongToPlaylist = async (req: RequestTypeWithUser, res: Response) => {
   const { song_id } = req.body;
@@ -107,7 +117,7 @@ const addSongToPlaylist = async (req: RequestTypeWithUser, res: Response) => {
 };
 
 //@desc Update playlist by removing a song
-//@route PUT /api/playlists/:id/remove
+//@route PUT /api/users/playlists/:id/remove
 //@access private
 const removeSongToPlaylist = async (
   req: RequestTypeWithUser,
@@ -140,7 +150,7 @@ const removeSongToPlaylist = async (
 };
 
 //@desc Update playlist detail such as title and description
-//@route PUT /api/playlists/:id/details
+//@route PUT /api/users/playlists/:id/details
 //@access private
 const updatePlaylistDetails = async (
   req: RequestTypeWithUser,
@@ -165,7 +175,7 @@ const updatePlaylistDetails = async (
 };
 
 //@desc Delete playlist
-//@route DELETE /api/playlists/:id
+//@route DELETE /api/users/playlists/:id
 //@access private
 const deletePlaylist = async (req: RequestTypeWithUser, res: Response) => {
   const id = req.params.id;

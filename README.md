@@ -1,6 +1,6 @@
 # 🎹 Artiz MoNo API 🥁
 
-An API that lists artists and their songs. Authenticated users can perform actions such as liking a song or following an artist.
+An API that lists artists and their songs. Authenticated users can perform actions such as liking a song, following an artist and creating playlists.
 
 Technologies used: **Mo**ngoDB, **No**deJS, Mongoose and Docker.
 
@@ -61,8 +61,8 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
     "_id": "09d6140f397f5b74b4e8c244",
     "username": "doe",
     "email": "joe@doe.com",
-    "liked_songs": ["1", "2", "3"], // [songId]
-    "following": ["11", "22", "33"] // [artistId]
+    "liked_songs": ["1", "2", "3"],
+    "following": ["11", "22", "33"]
   }
 ]
 ```
@@ -124,9 +124,9 @@ _Note: Mongo usually generates an \_id of type ObjectId for us. Here we add it e
 ```
 
 docker cp ./data/artists.json mongodb:/artists.json \
-&& docker exec mongodb mongoimport --db mono --collection artists --file /artists.json --jsonArray --mode upsert \
+&& docker exec mongodb mongoimport --db mono --collection artists --drop --file /artists.json --jsonArray --mode upsert \
 && docker cp ./data/songs.json mongodb:/songs.json \
-&& docker exec mongodb mongoimport --db mono --collection songs --file /songs.json --jsonArray --mode upsert
+&& docker exec mongodb mongoimport --db mono --collection songs --drop --file /songs.json --jsonArray --mode upsert
 
 ```
 
