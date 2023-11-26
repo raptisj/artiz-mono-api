@@ -67,6 +67,9 @@ docker cp ./data/artists.json mongodb:/artists.json \
 
 ```
 
+To try out the API you can use Postman. Register a user and copy the access token in the response to your clipboard. Paste it in the `Authorization > Bearer Token` section in the token field.
+
+
 ## Structure of data
 
 ### Artist
