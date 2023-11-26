@@ -54,7 +54,7 @@ I used ChatGPT to generate the data. To do so youself you can insert the prompts
 
 In the `data` folder there are two JSON files.
 
-First we need to copy each file to the container. Second we need to run **mongoimport** to populate the database.
+First, we need to copy each file to the container. Second, we need to run **mongoimport** to populate the database.
 
 _Note: Mongo usually generates an \_id of type ObjectId for us. Here we add it explicitly in a format that mongoimport can understand in order to generate an \_id in the correct format._
 
@@ -68,6 +68,10 @@ docker cp ./data/artists.json mongodb:/artists.json \
 ```
 
 To try out the API you can use Postman. Register a user and copy the access token in the response to your clipboard. Paste it in the `Authorization > Bearer Token` section in the token field.
+
+<img width="921" alt="Screen Shot 2023-11-26 at 5 44 17 PM" src="https://github.com/raptisj/artiz-mono-api/assets/23478420/90618e55-38e5-4578-8fdd-22a3136a6545">
+
+
 
 
 ## Structure of data
