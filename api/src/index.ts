@@ -3,6 +3,9 @@ dotenv.config();
 import cors from "cors";
 import mongoose from "mongoose";
 
+import swaggerUi from "swagger-ui-express";
+import swaggerFile from "../swagger-output.json";
+
 import artistRouter from "./routers/artist";
 import userRouter from "./routers/user";
 import playlistRouter from "./routers/playlist";
@@ -24,6 +27,8 @@ app.use("/api/", artistRouter);
 app.use("/api/", userRouter);
 app.use("/api/", playlistRouter);
 app.use("/api/", songRouter);
+
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.listen(port, () => {
   console.log(`This app listening at http://localhost:${port}`);
