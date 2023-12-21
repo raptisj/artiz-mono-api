@@ -12,6 +12,7 @@ import { setPagination } from "../utils/pagination";
 //@access private
 //query params ?size=15&page=2
 const getAll = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['Playlist']
   const userId = req.user.id;
   const page = Number(req.query.page) || 1;
   const pageSize = Number(req.query.size) || 20;
@@ -36,6 +37,7 @@ const getAll = async (req: RequestTypeWithUser, res: Response) => {
 //@route GET /api/users/playlists/:id
 //@access private
 const getSingle = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['Playlist']
   const id = req.params.id;
   const userId = req.user.id;
 
@@ -54,6 +56,7 @@ const getSingle = async (req: RequestTypeWithUser, res: Response) => {
 //@route POST /api/users/playlists
 //@access private
 const createPlaylist = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['Playlist']
   const { title, description } = req.body;
   const userId = req.user.id;
 
@@ -84,6 +87,7 @@ const createPlaylist = async (req: RequestTypeWithUser, res: Response) => {
 //@route PUT /api/users/playlists/:id/add
 //@access private
 const addSongToPlaylist = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['Playlist']
   const { song_id } = req.body;
   const userId = req.user.id;
   const id = req.params.id;
@@ -128,6 +132,7 @@ const removeSongToPlaylist = async (
   req: RequestTypeWithUser,
   res: Response
 ) => {
+  // #swagger.tags = ['Playlist']
   const { song_id } = req.body;
   const userId = req.user.id;
   const id = req.params.id;
@@ -165,7 +170,8 @@ const removeSongToPlaylist = async (
 const updatePlaylistDetails = async (
   req: RequestTypeWithUser,
   res: Response
-) => {
+  ) => {
+  // #swagger.tags = ['Playlist']
   const { title, description } = req.body;
   const userId = req.user.id;
   const id = req.params.id;
@@ -188,6 +194,7 @@ const updatePlaylistDetails = async (
 //@route DELETE /api/users/playlists/:id
 //@access private
 const deletePlaylist = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['Playlist']
   const id = req.params.id;
 
   try {

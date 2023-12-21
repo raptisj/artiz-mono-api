@@ -13,6 +13,7 @@ import { getMongooseValidationErrors } from "../utils/errorHandling";
 //@route POST /api/users/register
 //@access public
 const register = async (req: Request, res: Response) => {
+  // #swagger.tags = ['User']
   const { username, email, password } = req.body;
 
   const existingUser = await users.findOne({ email });
@@ -46,6 +47,7 @@ const register = async (req: Request, res: Response) => {
 //@route GET /api/users/login
 //@access public
 const login = async (req: Request, res: Response) => {
+  // #swagger.tags = ['User']
   const { email, password } = req.body;
   if (!email || !password) {
     res.status(400).json({ message: "All fields are mandatory!" });
@@ -71,6 +73,7 @@ const login = async (req: Request, res: Response) => {
 //@route GET /api/users/currentUser
 //@access private
 const currentUser = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['User']
   try {
     res.json(req.user);
   } catch (error) {
@@ -83,6 +86,7 @@ const currentUser = async (req: RequestTypeWithUser, res: Response) => {
 //@access private
 //query params ?following=true&liked_songs=true&playlist_collection=true to embed objects in response
 const userProfile = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['User']
   const following = req.query.following;
   const liked_songs = req.query.liked_songs;
   const playlist_collection = req.query.playlists;
@@ -129,6 +133,7 @@ const userProfile = async (req: RequestTypeWithUser, res: Response) => {
 //@route PUT /api/users/me/song
 //@access private
 const addLikedSongs = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['User']
   const { song_id } = req.body;
   const userId = req.user.id;
 
@@ -157,6 +162,7 @@ const addLikedSongs = async (req: RequestTypeWithUser, res: Response) => {
 //@route PUT /api/users/me/remove_song
 //@access private
 const removeLikedSongs = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['User']
   const { song_id } = req.body;
   const userId = req.user.id;
 
@@ -178,6 +184,7 @@ const removeLikedSongs = async (req: RequestTypeWithUser, res: Response) => {
 //@route PUT /api/users/me/following
 //@access private
 const addFollowing = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['User']
   const { artist_id } = req.body;
   const userId = req.user.id;
 
@@ -205,6 +212,7 @@ const addFollowing = async (req: RequestTypeWithUser, res: Response) => {
 //@route PUT /api/users/me/remove_following
 //@access private
 const removeFollowing = async (req: RequestTypeWithUser, res: Response) => {
+  // #swagger.tags = ['User']
   const { artist_id } = req.body;
   const userId = req.user.id;
 

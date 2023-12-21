@@ -8,6 +8,7 @@ import { setPagination } from "../utils/pagination";
 //@access public
 //query params ?size=15&page=2
 const getAll = async (req: Request, res: Response) => {
+  // #swagger.tags = ['Artist']
   const page = Number(req.query.page) || 1;
   const pageSize = Number(req.query.size) || 20;
 
@@ -30,6 +31,7 @@ const getAll = async (req: Request, res: Response) => {
 //@route GET /api/artists/:id
 //@access public
 const getSingle = async (req: Request, res: Response) => {
+  // #swagger.tags = ['Artist']
   const id = req.params.id;
 
   try {

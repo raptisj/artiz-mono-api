@@ -13,6 +13,9 @@
   "paths": {
     "/artists": {
       "get": {
+        "tags": [
+          "Artist"
+        ],
         "description": "",
         "parameters": [
           {
@@ -35,6 +38,9 @@
     },
     "/artists/{id}": {
       "get": {
+        "tags": [
+          "Artist"
+        ],
         "description": "",
         "parameters": [
           {
@@ -53,6 +59,9 @@
     },
     "/users/playlists": {
       "get": {
+        "tags": [
+          "Playlist"
+        ],
         "description": "",
         "parameters": [
           {
@@ -84,6 +93,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Playlist"
+        ],
         "description": "",
         "parameters": [
           {
@@ -125,6 +137,9 @@
     },
     "/users/playlists/{id}": {
       "get": {
+        "tags": [
+          "Playlist"
+        ],
         "description": "",
         "parameters": [
           {
@@ -152,6 +167,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Playlist"
+        ],
         "description": "",
         "parameters": [
           {
@@ -178,6 +196,9 @@
     },
     "/users/playlists/{id}/add": {
       "put": {
+        "tags": [
+          "Playlist"
+        ],
         "description": "",
         "parameters": [
           {
@@ -219,6 +240,9 @@
     },
     "/users/playlists/{id}/remove": {
       "put": {
+        "tags": [
+          "Playlist"
+        ],
         "description": "",
         "parameters": [
           {
@@ -260,6 +284,9 @@
     },
     "/users/playlists/{id}/details": {
       "put": {
+        "tags": [
+          "Playlist"
+        ],
         "description": "",
         "parameters": [
           {
@@ -301,6 +328,9 @@
     },
     "/songs": {
       "get": {
+        "tags": [
+          "Song"
+        ],
         "description": "",
         "parameters": [
           {
@@ -318,6 +348,9 @@
     },
     "/songs/{id}": {
       "get": {
+        "tags": [
+          "Song"
+        ],
         "description": "",
         "parameters": [
           {
@@ -336,6 +369,9 @@
     },
     "/users/register": {
       "post": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -372,6 +408,9 @@
     },
     "/users/login": {
       "post": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -405,6 +444,9 @@
     },
     "/users/currentUser": {
       "get": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -425,6 +467,9 @@
     },
     "/users/me": {
       "get": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -460,6 +505,9 @@
     },
     "/users/me/song": {
       "put": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -495,6 +543,9 @@
     },
     "/users/me/remove_song": {
       "put": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -530,6 +581,9 @@
     },
     "/users/me/following": {
       "put": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -562,6 +616,9 @@
     },
     "/users/me/remove_following": {
       "put": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {

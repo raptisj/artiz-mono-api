@@ -5,6 +5,7 @@ import songs from "../models/song";
 //@route GET /api/songs
 //@access public
 const getAllById = async (req: Request, res: Response) => {
+  // #swagger.tags = ['Song']
   const songIds = req.query.song_ids as string;
   const songIdsArray = songIds.split(",");
 
@@ -21,6 +22,7 @@ const getAllById = async (req: Request, res: Response) => {
 //@route GET /api/songs/:id
 //@access public
 const getSingle = async (req: Request, res: Response) => {
+  // #swagger.tags = ['Song']
   const id = req.params.id;
 
   try {
